@@ -7,7 +7,6 @@
     </head>
     <body>
         <h1>STRAZE</h1>
-        <audio src="assets/four-voices-whispering-6.mp3" autoplay loop></audio>
         <hr>
         <div class="center">
             <img id="monster" src="assets/monster.jpg" width="800">
@@ -86,6 +85,7 @@
                 }else{
                     battletext.innerHTML = `"NEeeEd...1...2...3...TeaRrs.......Who am I again?"`;
                 }
+                battletext.innerHTML += `<audio src="assets/four-voices-whispering-6.mp3" autoplay></audio>`
 
                 queryString.set("san", san);
                 info.src = "info.html?"+queryString;
