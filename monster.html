@@ -7,6 +7,7 @@
     </head>
     <body>
         <h1>STRAZE</h1>
+        <audio src="assets/heavy-dark-sound-7545.mp3" autoplay></audio>
         <hr>
         <div class="center">
             <img id="monster" src="assets/monster.jpg" width="800">
@@ -72,6 +73,8 @@
                     battletext.innerHTML = `You ran out of bait and the monster noticed you. You Die.`
                     options.innerHTML = `<a href='index.html'><button>Game Over</button></a>`
                 }
+                battletext.innerHTML += `<audio src="assets/growl1-7121.mp3" autoplay></audio>`
+
             }
 
             function listen(){

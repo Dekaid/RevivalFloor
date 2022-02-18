@@ -43,6 +43,8 @@
                     textbox.innerHTML = `The gate has been unlock. Lets enter the mansion.`
                     info.src = "info.html?"+queryString;
                     exit.href = "forest.html?"+queryString;
+                    textbox.innerHTML += `<audio src="assets/gateLockUnlock.mp3" autoplay></audio>`;
+
                 }
                 else {
                     textbox.innerHTML = `The gate is locked. Lets take the other path to see if there is a key.`;
