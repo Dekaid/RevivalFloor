@@ -44,7 +44,6 @@
       function isUnlock() {
         if (mansK == 1) {
           mansion.href = "mansion.html?" + queryString;
-          textbox.innerHTML += `<audio src="assets/RZFWLXE-bell-hop-bell.mp3" autoplay></audio>`
         }
         else {
           textbox.innerHTML = `It seems like this floor is not available. Lets go to another different floor.`
@@ -52,12 +51,11 @@
 
         if (mazeK == 1) {
           maze.href = "maze.html?" + queryString;
-          textbox.innerHTML += `<audio src="assets/RZFWLXE-bell-hop-bell.mp3" autoplay></audio>`
-
         }
         else {
           textbox.innerHTML = `It seems like this floor is not available. Lets go to another different floor.`
         }
+
       }
     </script>
   </body>
