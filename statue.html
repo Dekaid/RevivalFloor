@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1>STATUE</h1>
+        <hr>
+
+        <div class="center">
+            <img src="assets/statue.jpg" width="800">
+
+            <div>
+                <h3>You enter an area in the maze and area has statues every where.</h3>
+    
+                <div class="center">
+                    <button onclick="getHellKey()">Look around the statues.</button>
+                </div>
+        
+                <p id="textbox"></p>
+        
+                <div class="center">
+                    <a id="exit" href="maze.html">Go Back</a>
+                </div>
+            </div>
+
+            <hr>
+            <div class="center">
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var hellK = +queryString.get("hellK");
+
+            function getHellKey(){
+                if(hellK == 0){
+                    queryString.set("hellK", hellK + 1);
+                    textbox.innerHTML = `You found a flame from Hell. This is probably the key to the Hell Gate.
+                    The place was surrounded in statues and under the statues are their name. Walking to the center statue, the stone plate says,
+                    <br><span style="color: lightgray;"> 
+                    "Here lies the Saviors of Humanity. Keep on believing."
+                    <span>`
+                    info.src = "info.html?"+queryString
+                    exit.href = "maze.html?"+queryString
+                }
+                else{
+                    textbox.innerHTML = `There seems to be 1 flame, go back and take another path.`
+                }
+            }
+        </script>
+    </body>
+</html>

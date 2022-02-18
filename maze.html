@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+
+    <body>
+        <h1>MAZE</h1>
+        <hr>
+        <div class="center">
+            <img class="maze-img" src="assets/maze.jpg" width="800">
+        </div>
+        <div class="center">
+            <p id="textbox">
+                You notice a sign outside of the hedge maze. "Be prepare for the gates. Easily enterable, Need a miracle to escape."
+            </p>
+        </div>
+        <ul class="justify-space-evenly">
+            <li> <a id="heavengate" href="heavengate.html"> Take Left Path</a> </li>
+            <li> <a id="statue" href="statue.html"> Take Middle Path</a> </li>
+            <li> <a id="hellgate" href="hellgate.html"> Take Right Path</a> </li>
+        </ul>
+        <div class="center">
+            <a id="exit" href="elevator.html">Go Back</a>
+        </div>
+
+        <hr>
+        <div class="center">
+            <iframe id="info" src="info.html" height="125" width="250"></iframe>
+        </div>
+        <script>
+            info.src += location.search;
+            heavengate.href += location.search;
+            statue.href += location.search;
+            hellgate.href += location.search;
+            exit.href += location.search;
+        
+        </script>
+    </body>
+</html>

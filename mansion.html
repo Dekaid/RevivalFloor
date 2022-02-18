@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+
+    <body>
+        <h1>MANSION</h1>
+        <hr>
+        <div class="center">
+            <img class="mansion-img" src="assets/mansion.jpg" width="800">            
+        </div>
+
+        <ul class="justify-space-evenly">
+            <li> <a id="kitchen" href="kitchen.html">Go to the Kitchen.</a> </li>
+            <li> <a id="master" href="master.html">Go to the Master Bedroom.</a> </li>
+            <li> <a id="monster" href="monster.html">Go to the Backyard.</a> </li>
+        </ul>
+
+        <div class="center">
+            <a id="exit" href="elevator.html">Go Back</a>
+        </div>
+        <hr>
+        <div class="center">
+            <iframe id="info" src="info.html" height="125" width="250"></iframe>
+        </div>
+        <script>
+            info.src += location.search;
+            kitchen.href += location.search;
+            master.href += location.search;
+            monster.href += location.search;
+            exit.href += location.search;
+
+        </script>
+    </body>
+</html>

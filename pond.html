@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+
+    <body>
+        <h1>POND</h1>
+        <hr>
+        <div class="center">
+            <img class="pond-img" src="assets/pond.jpg"  width="800">
+        
+            <div>
+                <h3>Look around the pond, there might be something around here....</h3>
+                <div class="center">
+                    <button onclick="getMansKey()">Search around the pond</button>
+                </div>
+
+                <p id="textbox"></p>
+                
+                <div class="center">
+                    <a id="exit" href="forest.html">Go back.</a>
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var mansK = +queryString.get("mansK");
+
+            function getMansKey(){
+                if(mansK < 1){
+                    mansK += 1
+                    queryString.set("mansK", mansK);
+                    info.src = "info.html?"+queryString;
+                    exit.href = "forest.html?"+queryString;
+                    textbox.innerHTML = `You have obtain the key to open the mansion's gate.
+                        <br> You also notice a tree truck cover in words. A closer look shows a list of names.
+                        <br> Your name also happen to be on there too...`
+                    
+                }
+                else{
+                    textbox.innerHTML = `Lets go back to mansion's gate and open it with the key.`
+                }
+
+            }
+        </script>
+    </body>
+</html>

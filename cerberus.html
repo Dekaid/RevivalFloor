@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1> CEBERUS </h1>
+        <hr>
+
+        <div class="center">
+            <img src="assets/cerberus.jpg" width="800">
+
+            <div id="option">
+                <h3>You are facing a 3 headed beast. Seems like Angel Tears are the only thing can defeat it. Hopfully you prepare enough tears.</h3>
+            
+                <div class="center">
+                    <button onclick="useTear()"> 
+                        Use Angel Tear &#128167; 
+                    </button>
+                </div>
+            </div>
+        
+            <hr>
+            <div class="center">
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        <script>
+            info.src += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var angelTear = +queryString.get("tear");
+            var heavenKey = +queryString.get("heavK");
+            
+            function useTear(){
+                if(angelTear >= 3){
+                    queryString.set("tear", angelTear-3);
+                    queryString.set("heavK", heavenKey+1);
+                    option.innerHTML=`
+                    <p id="textbox">You have defeated Cerberus and obtain the Eye of Heaven. Before dying, Cercerbus whispers, "God is..is...not what....you expect."</p>
+                    <a href="maze.html?${queryString}"><button>Go back</button></a>`
+                    info.src = "info.html?"+queryString;
+                }
+                else{
+                    option.innerHTML=`
+                    <div>
+                    <p id="textbox">Cerberus has kill you and took your soul. Your sould fell asleep not knowing what you're turning into.</p>
+                    <div class="center">
+                    <a href="index.html"><button>Go to sleep forever.</button></a>
+                    </div>
+                    </div>
+                    `
+                    info.src = "info.html?"+queryString;
+                }
+                
+            }
+
+        </script>
+    </body>
+</html>

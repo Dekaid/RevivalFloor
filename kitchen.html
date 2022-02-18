@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1> KITCHEN </h1>
+        <hr>
+        <div class="center">
+            <img class="cafeteria-img" src="assets/cafeteria.jpg" width="800">
+            
+            <div>
+                <h3>Pick an item from the menu </h3>
+
+                <div>
+                    <p id="textbox">
+                        The kitchen looks more like a cafeteria and on one of the table is an menu.
+                        The menu has a list of items you can purchase using crystals
+                    </p>
+                </div>
+    
+                <div class="justify-space-evenly">
+                    <button onclick="sanity()"> 
+                        Sanity &#127917; 
+                        <br> <i> (1 &#128142;) </i> 
+                    </button>
+        
+                    <button onclick="bait()"> 
+                        Bait &#127830; 
+                        <br> <i> (3 &#128142;) </i> 
+                    </button>
+        
+                    <button onclick="tear()"> 
+                        Angel Tear &#128167; 
+                        <br> <i> (10 &#128142;) </i> 
+                    </button>
+                </div>
+
+                <div class="center">
+                    <a id="exit" href="mansion.html">Go Back</a>
+                </div>
+            </div>
+            <hr>
+            <div class="center">
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var crys = +queryString.get("crys");
+            var san = +queryString.get("san");
+            var baits = +queryString.get("bait");
+            var tears = +queryString.get("tear");
+            
+            function sanity(){
+                if(crys>0){
+                    queryString.set("crys",crys-1);
+                    queryString.set("san", san+1);
+                    location.search = queryString;
+                }
+            }
+
+            function bait(){
+                if(crys >= 3){
+                    queryString.set("crys",crys-2);
+                    queryString.set("bait", baits+2);
+                    location.search = queryString;
+                }
+            }
+
+            function tear(){
+                if(crys >= 10){
+                    queryString.set("crys",crys-10);
+                    queryString.set("tear", tears+1);
+                    location.search = queryString;
+                }
+                
+            }
+
+        </script>
+    </body>
+</html>

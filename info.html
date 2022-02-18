@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <p class="text-white fontHadeus large-text">Info:</p> <hr>
+        <table>
+            <tr>
+                <th> &#127917 </th>   <!--🎭Sanity-->
+                <th> &#127830 </th>   <!--🍖Bait-->
+                <th> &#128142 </th>   <!--💎Crystal-->
+                <th> &#128167 </th>   <!--💧Angel Tear-->
+                <th> &#128273 </th>   <!--🔑Mansion Key-->
+                <th> &#128276 </th>   <!--🔔Maze Key -->
+                <th> &#129535 </th>   <!--🧿Heaven Key-->
+                <th> &#128293 </th>   <!--🔥Hell Key-->
+            </tr>   
+            <tr>
+                <td id="san">0</td>
+                <td id="bait"></td>
+                <td id="crys">0</td>
+                <td id="tear">0</td>
+                <td id="mansK">0</td>
+                <td id="mazeK">0</td>
+                <td id="heavK">0</td>
+                <td id="hellK">0</td>
+
+            </tr>
+        </table>
+        <script>
+            var queryString = new URLSearchParams(location.search);
+
+            san.innerText = queryString.get("san");
+            bait.innerText = queryString.get("bait");
+            crys.innerText = queryString.get("crys");
+            tear.innerText = queryString.get("tear");
+            mansK.innerText = queryString.get("mansK");
+            mazeK.innerText = queryString.get("mazeK");
+            heavK.innerText = queryString.get("heavK");
+            hellK.innerText = queryString.get("hellK");
+
+        </script>
+    </body>
+</html>

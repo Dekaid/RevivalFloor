@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1>STRAZE</h1>
+        <hr>
+        <div class="center">
+            <img id="monster" src="assets/monster.jpg" width="800">
+            
+            <div>
+                <p id="battletext">
+                    You spot a two headed monster in the back yard and hid in a bush. 
+                    You notice that the monster is guarding its treasury while saying something.
+                </p>
+
+                <h3 class="center">
+                    What should you do?
+                </h3>
+
+                <div id="options" class="justify-space-evenly">
+                    <button id="distract" onclick="distract()">
+                        Distract
+                    </button>
+                    <button id="listen" onclick="listen()">
+                        Listen
+                    </button>
+                    <a id="exit" href="mansion.html">
+                        <button>Retreat</button>
+                    </a>
+                </div>
+            </div>
+            
+            <hr>
+            <div>
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var crys = +queryString.get("crys");
+            var san = +queryString.get("san");
+            var bait = +queryString.get("bait");
+            var monsterAura = 2, monsterEat = 1, monsterLoot = 5;
+
+            function distract(){
+                san -= monsterAura
+                bait -= monsterEat
+                crys += monsterLoot
+
+                queryString.set("crys", crys);
+                queryString.set("san", san);
+                queryString.set("bait", bait);
+                info.src = 'info.html?'+queryString;
+                exit.href = "mansion.html?"+queryString
+                battletext.innerHTML = `You threw 1 bait in the maze and distracted the monster.
+                    <br> You search the monster territory and found 3 crystal.
+                    <br> By being in the monster terrority, you lost 2 sanity and feel a bit crazy.`
+                    
+                if(san < 1){
+                    battletext.innerHTML = `You have gone crazy and die.`
+                    options.innerHTML = `<a href='index.html'><button>Game Over</button></a>`
+                }
+                else if(bait < 1){
+                    battletext.innerHTML = `You ran out of bait and the monster noticed you. You Die.`
+                    options.innerHTML = `<a href='index.html'><button>Game Over</button></a>`
+                }
+            }
+
+            function listen(){
+                let quote = Math.floor((Math.random() * 3) + 1);
+                san -= monsterAura
+
+                if (quote == 1){
+                    battletext.innerHTML = `"I...shoUld of... hAAAve preeeeParreee....."`;
+                }else if(quote == 2){
+                    battletext.innerHTML = `"AnGeeell...tteARRSs...just neED...ONe...MOAARRRRR....."`;
+                }else{
+                    battletext.innerHTML = `"NEeeEd...1...2...3...TeaRrs.......Who am I again?"`;
+                }
+
+                queryString.set("san", san);
+                info.src = "info.html?"+queryString;
+                exit.href = "mansion.html?"+queryString
+            }
+        </script>
+</html>

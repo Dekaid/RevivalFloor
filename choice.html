@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1>CHOICE OF FATE</h1>
+        <hr>
+        <div class="center">
+            <img class="heaven-gate-img" src="assets/angel-guide.jpg" width="800">
+        </div>
+        <div class="center">
+            <p id="textbox" style="color: rgba(255, 217, 0, 0.87);">
+                "I am the guide to tell you what is going on. Floors are trials to test the candidates if they are ready for choosing a path.
+                You have to pick one of the path. The Angel Path is becoming one of the Watcher who bring new candidates into trial. The Chain Path
+                is you becoming one of the Chains who bind God from destroying humanity. God is already weaken from people believing in God,
+                but its not enough to hold God down. What is your chosen path?"
+            </p>
+        </div>
+        <div class="center">
+            <label id="textbox">Angel or Chain</label> 
+        </div> 
+              
+        <div class="center">
+            <input id="inputText" type="text">
+            <input type="button" value="Submit" onclick="chosenPath()">
+        </div>
+ 
+        <hr>
+        <script>
+            function chosenPath(){
+                if (inputText.value.toLowerCase() == "angel"){
+                    parent.location = "angel.html"
+                }
+                else if (inputText.value.toLowerCase() == "chain"){
+                    parent.location = "chain.html"
+                }
+                
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1>HELL'S GATE</h1>
+        <hr>
+        <div class="center">
+            <img src="assets/hell-gate.jpg" width="800">
+    
+            <div>
+                <h3>Seems like going through Hell can lead to Heaven. There is a warning outside of the gate. It says, "If prepared, you shall move on else a fate worse than death."</h3>
+                <a id="cerberus" href="#" class="center">
+                    <button onclick="haveHellKey()">Enter Hell's Gate</button>
+                </a>
+                <div class="center">
+                    <a id="exit" href="maze.html">Go Back</a>
+                </div>
+            </div>
+
+            <hr>
+            <div class="center">
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var hellK = +queryString.get("hellK");
+            
+            function haveHellKey(){
+                if (hellK >= 1){
+                    queryString.set("hellK", hellK-1);
+                    cerberus.href = "cerberus.html?" +queryString;
+
+                }
+                else{
+                    textbox.innerHTML = `You need the Fire of Hell to open the gate. `
+                }
+            }
+        </script>
+    </body>
+</html>

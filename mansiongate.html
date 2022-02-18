@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+
+    <body>
+        <h1>MANSION GATE</h1>
+        <hr>
+        <div class="center">
+            <a id="gate" href='#'>
+                <img id="gateImage" onclick="openGate()" src="assets/m_gate_close.jpg" width="800">
+            </a>
+
+            <div>
+                <p id='textbox'>There is a sign on the gate. <br> "Here lies the candidates' mansion."</p>
+                <div class="center">
+                    <a id="exit" href="forest.html">Go Back</a> 
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var mansK = +queryString.get("mansK");
+            
+            function openGate(){
+                if (gateImage.src.includes("m_gate_open")){
+                    gate.href = "mansion.html?"+queryString;
+                }
+                else if (mansK == 1){
+                    gateImage.src="assets/m_gate_open.jpg"
+                    textbox.innerHTML = `The gate has been unlock. Lets enter the mansion.`
+                    info.src = "info.html?"+queryString;
+                    exit.href = "forest.html?"+queryString;
+                }
+                else {
+                    textbox.innerHTML = `The gate is locked. Lets take the other path to see if there is a key.`;
+                }
+            }
+        </script>
+    </body>
+</html>

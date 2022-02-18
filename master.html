@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1>MASTER BEDROOM</h1>
+        <hr>
+        <div class="center">
+            <img class="bedroom-img" src="assets/bedroom.jpg" width="800">
+
+            <div>
+                <h3>You enter the master bedroom. Lets find the key to maze. </h3>
+            
+                <div class="center">
+                    <button onclick="getMazeKey()">Search the bedroom</button>
+                </div>
+    
+                <p id="textbox"></p>
+    
+                <div class="center">
+                    <a id="exit" href="mansion.html">Go Back</a>
+                </div> 
+            </div>
+            <hr>
+            <div>
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var mazeK = +queryString.get("mazeK");
+
+            function getMazeKey(){
+                if(mazeK == 0){
+                    queryString.set("mazeK", mazeK + 1);
+                    textbox.innerHTML = `You have found the bell to open the maze.
+                        <br> You found a diary and name on the diary matches to one of the names at the pond.
+                        <br>
+                        <span style="color: lightgray;">
+                        Page 1: "This place seems like a trial of some sort."" <br>
+                        Page 3: "The kitchen provide everything for you."" <br>
+                        Page 6: "I can barely sleep, I keep hearing whispers in the backyard."<br>
+                        Page 10: "This place feels like Hell but I found a clue in the maze that Heaven also exist."<br>
+                        Page 20: "This is my last entry before final gate, thank you for reading stranger."<br> "--Straze"                        
+                        </span>`
+                    info.src = "info.html?"+queryString
+                    exit.href = "mansion.html?"+queryString
+                }
+               else{
+                textbox.innerHTML = `You already found the bell to the maze.`
+
+               }
+            }
+        </script>
+
+    </body>
+</html>

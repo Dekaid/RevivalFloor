@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+
+    </head>
+
+    <body>
+        <h1>FOREST</h1>
+        <hr color="black">
+        <div class="center">
+            <img class="forest-img" src="assets/forest.jpg" width="800">
+        </div>
+
+        <div>
+            <p id="textbox">
+                You exit the elevator and found yourself in a forrest. There seems to be only 2 paths. Which one should you take?
+            </p>
+        </div>
+
+        <div>
+            <ul class="justify-space-evenly">
+                <li> <a id="mansion_gate" href="mansiongate.html">Go Left</a> </li>
+                <li> <a id="pond" href="pond.html">Go Right</a> </li>
+            </ul>
+            
+        </div>
+
+        <div class="center">
+            <a id="exit" href="elevator.html">Go Back</a>
+        </div>
+
+        <hr color="black">
+        <div class="center">
+            <iframe id="info" src="info.html" height="125" width="250"></iframe>
+        </div>
+        <script>
+            info.src += location.search;
+            pond.href += location.search;
+            mansion_gate.href += location.search;
+            exit.href += location.search;
+        </script>
+    </body>
+</html>

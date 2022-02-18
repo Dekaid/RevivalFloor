@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Revival Floor </title>
+
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="assets/favicon.png">
+    </head>
+    <body>
+        <h1>HEAVEN'S GATE</h1>
+        <hr>
+        <div class="center">
+            <img class="heaven-gate-img" src="assets/heaven-gate.jpg" width="500" height="650">
+            
+            <div>
+                <h3>Should you open and enter Heaven's Gate?</h3>
+                <p id="textbox">Just like the Hell's Gate, once you enter you can't leave. In front of the gate say, "Be a watcher or savior".</p>
+                <div class="center">
+                    <a id="choice" href="#">
+                        <button onclick="haveHeavenKey()">Enter Heaven's Gate</button>
+                    </a>
+                </div>
+
+                <div class="center">
+                    <a id="exit" href="maze.html">Go Back</a>
+                </div>
+            </div>
+            
+            <hr>
+            <div class="center">
+                <iframe id="info" src="info.html" height="125" width="250"></iframe>
+            </div>
+        </div>
+        <script>
+            info.src += location.search;
+            exit.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var heavK = +queryString.get("heavK");
+            
+            function haveHeavenKey(){
+                if (heavK >= 1){
+                    queryString.set("heavK", heavK-1);
+                    choice.href = "choice.html"
+                }
+                else{
+                    textbox.innerHTML = `You need the Eye of Heaven to open the gate.`
+                }
+            }
+        </script>
+    </body>
+</html>
